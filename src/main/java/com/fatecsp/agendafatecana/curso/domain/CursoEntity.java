@@ -1,4 +1,4 @@
-package com.fatecsp.agendafatecana.curso;
+package com.fatecsp.agendafatecana.curso.domain;
 
 import java.util.List;
 

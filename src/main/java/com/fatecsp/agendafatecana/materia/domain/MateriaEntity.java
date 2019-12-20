@@ -1,10 +1,11 @@
-package com.fatecsp.agendafatecana.materia;
+package com.fatecsp.agendafatecana.materia.domain;
 
 import java.util.List;
 
 import com.fatecsp.agendafatecana.aula.Aula;
 import com.fatecsp.agendafatecana.enumerated.PeriodoAulaEnum;
 import com.fatecsp.agendafatecana.evento.Evento;
+import com.fatecsp.agendafatecana.materia.HorarioMateria;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

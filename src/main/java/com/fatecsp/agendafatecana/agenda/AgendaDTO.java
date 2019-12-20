@@ -1,26 +1,27 @@
-package com.fatecsp.agendafatecana.calendario;
+package com.fatecsp.agendafatecana.agenda;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fatecsp.agendafatecana.calendario.Mes;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * CalendarioEntity
+ * AgendaDTO
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Document(collection = "calendario_entity")
-public class CalendarioEntity {
+@EqualsAndHashCode(callSuper = false)
+public class AgendaDTO{
 
-    private String id;
     private Integer ano;
     private Integer semestre;
     private List<Mes> meses;
+
 }

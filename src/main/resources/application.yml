@@ -1,0 +1,14 @@
+spring:
+   profiles:
+      active: dev
+      include: swagger
+   data:
+      mongodb:
+         uri: mongodb://localhost:27017/admin
+         database: agendaFatecana
+   mongodb:
+       embedded:
+          version: 3.4.1
+server:
+    port: 8081
+

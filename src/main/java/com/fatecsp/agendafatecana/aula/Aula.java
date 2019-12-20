@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fatecsp.agendafatecana.evento.Evento;
+import com.querydsl.core.annotations.QueryEntity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "aula_entity")
+@QueryEntity
 public class Aula {
 
 	private String id;
