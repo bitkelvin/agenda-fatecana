@@ -2,22 +2,22 @@ package com.fatecsp.agendafatecana.calendario;
 
 import java.util.List;
 
+import com.fatecsp.agendafatecana.enumerated.MesEnum;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * CalendarioEntity
+ * Mes
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalendarioEntity {
+public class Mes {
 
-    private String id;
-    private Integer ano;
-    private Integer semestre;
-    private List<Mes> meses;
+    private MesEnum mes;
+    private List<Dia> dias;
 }

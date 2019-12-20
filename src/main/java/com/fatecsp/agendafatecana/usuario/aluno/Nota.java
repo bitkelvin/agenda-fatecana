@@ -21,4 +21,5 @@ public class Nota {
    private TipoNotaEnum tipo;
    private BigDecimal valor;
    private String comentario; 
+   
 }
