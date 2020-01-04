@@ -25,25 +25,25 @@ public class DisciplinaEntityResource {
     @Autowired
     DisciplinaEntityService disciplinaService;
 
-    @PostMapping("disciplina")
+    @PostMapping("/disciplina")
     public DisciplinaEntity salvarDisciplina(@RequestBody DisciplinaEntity e) {        
         log.info("chamada ao metodo salvarDisciplina - DisciplinaEntity : ()", e);
         return disciplinaService.salvarDisciplina(e);
     }
 
-    @PutMapping("disciplina")
+    @PutMapping("/disciplina")
     public DisciplinaEntity atualizarDisciplina(@RequestBody DisciplinaEntity e) {        
         log.info("chamada ao metodo alterarDisciplina - DisciplinaEntity : ()", e);
         return disciplinaService.atualizarDisciplina(e);
     }
 
-    @DeleteMapping("disciplina")
+    @DeleteMapping("/disciplina")
     public DisciplinaEntity deletarDisciplina(@RequestBody DisciplinaEntity e) {        
         log.info("chamada ao metodo deletarDisciplina - DisciplinaEntity : ()", e);
         return disciplinaService.deletarDisciplina(e);
     }
 
-    @DeleteMapping("disciplina")
+    @DeleteMapping("/disciplina")
     public void deletarDisciplinaPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarDisciplinaPorId - ID : ()", id);
         disciplinaService.deletarDisciplinaPorId(id);

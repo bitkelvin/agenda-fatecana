@@ -17,7 +17,7 @@ public class DisciplinaEntityService {
 
     @Transactional
     public DisciplinaEntity salvarDisciplina(DisciplinaEntity e) {
-        if (e.getId() != null) throw new RuntimeException("A entidade não pode conter");
+        if (e.getId() != null) throw new RuntimeException("A entidade não pode conter um ID");
         return disciplinaQueryService.salvarDisciplina(e);
     }
 

@@ -2,7 +2,7 @@ package com.fatecsp.agendafatecana.agenda;
 
 import java.util.List;
 
-import com.fatecsp.agendafatecana.calendario.Mes;
+import com.fatecsp.agendafatecana.calendario.domain.Mes;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

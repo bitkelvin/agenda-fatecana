@@ -1,6 +1,6 @@
 package com.fatecsp.agendafatecana.repository;
 
-import com.fatecsp.agendafatecana.calendario.CalendarioEntity;
+import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
