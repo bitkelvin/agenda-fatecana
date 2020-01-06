@@ -2,6 +2,7 @@ package com.fatecsp.agendafatecana.calendario.service;
 
 import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,7 @@ public class CalendarioEntityService {
     @Transactional
     public CalendarioEntity salvarCalendario(CalendarioEntity e) {
         if (e.getId() != null) throw new RuntimeException("A entidade não pode conter um ID");
+        e.setId(ObjectId.get().toString());
         return calendarioQueryService.salvarCalendario(e);
     }
 

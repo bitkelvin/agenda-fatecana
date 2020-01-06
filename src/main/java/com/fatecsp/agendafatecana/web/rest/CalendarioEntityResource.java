@@ -43,7 +43,7 @@ public class CalendarioEntityResource {
         return calendarioService.deletarCalendario(e);
     }
 
-    @DeleteMapping("/calendario")
+    @DeleteMapping("/calendario_id")
     public void deletarCalendarioPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarCalendarioPorId - ID : ()", id);
         calendarioService.deletarCalendarioPorId(id);

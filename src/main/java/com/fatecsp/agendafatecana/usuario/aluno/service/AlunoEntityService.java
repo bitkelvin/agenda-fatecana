@@ -3,6 +3,7 @@ package com.fatecsp.agendafatecana.usuario.aluno.service;
 
 import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,7 @@ public class AlunoEntityService {
     @Transactional
     public AlunoEntity salvarAluno(AlunoEntity e) {
         if (e.getId() != null) throw new RuntimeException("A entidade não pode conter um ID");
+        e.setId(ObjectId.get().toString());
         return alunoQueryService.salvarAluno(e);
     }
 

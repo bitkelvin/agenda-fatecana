@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.querydsl.core.annotations.QueryEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Document(collection = "calendario_entity")
+@QueryEntity
 public class CalendarioEntity {
 
     private String id;

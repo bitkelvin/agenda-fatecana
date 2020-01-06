@@ -6,6 +6,7 @@ import com.fatecsp.agendafatecana.aula.Aula;
 import com.fatecsp.agendafatecana.enumerated.PeriodoAulaEnum;
 import com.fatecsp.agendafatecana.evento.Evento;
 import com.fatecsp.agendafatecana.materia.HorarioMateria;
+import com.querydsl.core.annotations.QueryEntity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "materia_entity")
+@QueryEntity
 public class MateriaEntity {
 
     private String id;

@@ -43,7 +43,7 @@ public class MateriaEntityResource {
         return materiaService.deletarMateria(e);
     }
 
-    @DeleteMapping("/materia")
+    @DeleteMapping("/materia_id")
     public void deletarMateriaPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarMateriaPorId - ID : ()", id);
         materiaService.deletarMateriaPorId(id);

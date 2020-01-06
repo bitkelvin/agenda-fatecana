@@ -43,7 +43,7 @@ public class CursoEntityResource {
         return cursoService.deletarCurso(e);
     }
 
-    @DeleteMapping("/curso")
+    @DeleteMapping("/curso_id")
     public void deletarCursoPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarCursoPorId - ID : ()", id);
         cursoService.deletarCursoPorId(id);

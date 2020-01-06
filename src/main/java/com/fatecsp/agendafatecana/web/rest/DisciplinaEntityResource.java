@@ -43,7 +43,7 @@ public class DisciplinaEntityResource {
         return disciplinaService.deletarDisciplina(e);
     }
 
-    @DeleteMapping("/disciplina")
+    @DeleteMapping("/disciplina_id")
     public void deletarDisciplinaPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarDisciplinaPorId - ID : ()", id);
         disciplinaService.deletarDisciplinaPorId(id);

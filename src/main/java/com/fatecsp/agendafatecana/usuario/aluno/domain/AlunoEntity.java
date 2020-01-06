@@ -8,6 +8,7 @@ import com.fatecsp.agendafatecana.materia.domain.MateriaEntity;
 import com.fatecsp.agendafatecana.usuario.Usuario;
 import com.fatecsp.agendafatecana.usuario.aluno.Falta;
 import com.fatecsp.agendafatecana.usuario.aluno.Nota;
+import com.querydsl.core.annotations.QueryEntity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,6 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 @Document(collection = "aluno_entity")
+@QueryEntity
 public class AlunoEntity extends Usuario{
 
     private String idCurso;

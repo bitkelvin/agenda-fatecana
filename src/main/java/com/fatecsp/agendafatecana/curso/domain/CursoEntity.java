@@ -3,6 +3,7 @@ package com.fatecsp.agendafatecana.curso.domain;
 import java.util.List;
 
 import com.fatecsp.agendafatecana.enumerated.DepartamentoEnum;
+import com.querydsl.core.annotations.QueryEntity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "curso_entity")
+@QueryEntity
 public class CursoEntity {
 
     private String id;

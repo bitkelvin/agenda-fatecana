@@ -43,7 +43,7 @@ public class AlunoEntityResource {
         return alunoService.deletarAluno(e);
     }
 
-    @DeleteMapping("/aluno")
+    @DeleteMapping("/aluno_id")
     public void deletarAlunoPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarAlunoPorId - ID : ()", id);
         alunoService.deletarAlunoPorId(id);

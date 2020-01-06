@@ -2,6 +2,7 @@ package com.fatecsp.agendafatecana.materia.service;
 
 import com.fatecsp.agendafatecana.materia.domain.MateriaEntity;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,7 @@ public class MateriaEntityService {
     @Transactional
     public MateriaEntity salvarMateria(MateriaEntity e) {
         if (e.getId() != null) throw new RuntimeException("A entidade não pode conter um ID");
+        e.setId(ObjectId.get().toString());
         return materiaQueryService.salvarMateria(e);
     }
 
