@@ -1,6 +1,13 @@
 package com.fatecsp.agendafatecana.usuario.aluno.service;
 
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+
+import com.fatecsp.agendafatecana.usuario.aluno.Falta;
 import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
 
 import org.bson.types.ObjectId;
@@ -39,5 +46,18 @@ public class AlunoEntityService {
     @Transactional
     public void deletarAlunoPorId(String id) {
         alunoQueryService.deletarAlunoPorId(id);
+    }
+
+	public AlunoEntity atualizarFaltas(String matricula, List<Falta> faltas) {
+        AlunoEntity aluno = recuperarPorMatricula(matricula);
+        if (Objects.nonNull(aluno)) aluno.setFaltas(faltas);
+        return aluno;
+	}
+
+    private AlunoEntity recuperarPorMatricula(String matricula) {
+        Objects.requireNonNull(matricula, "A matrícula não pode ser nula");
+        Map<String, Object> propriedades = new HashMap<>();
+        propriedades.put("matricula", matricula);
+        return alunoQueryService.recuperarPorMapaDePropriedades(propriedades);
     }
 }
