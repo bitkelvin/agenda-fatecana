@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @QueryEntity
 public class AlunoEntity extends Usuario{
 
-    private String marticula;
+    private String matricula;
     private String idCurso;
     private LocalDate dataInicioCurso;
     private List<Evento> eventos;

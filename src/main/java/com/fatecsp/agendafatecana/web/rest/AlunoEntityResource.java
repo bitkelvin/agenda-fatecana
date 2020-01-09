@@ -6,6 +6,8 @@ import com.fatecsp.agendafatecana.usuario.aluno.Falta;
 import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
 import com.fatecsp.agendafatecana.usuario.aluno.service.AlunoEntityService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +55,9 @@ public class AlunoEntityResource {
         alunoService.deletarAlunoPorId(id);
     }
     
-    @PutMapping("/aluno")
+    @PutMapping("/aluno/faltas")
     //TODO: colocar @ApiOperation aqui em todos os endpoint após adicionar o swagger como dependencia
+    @Operation(method = "PUT", description = "Atualiza a lista de faltas de um aluno")
     public AlunoEntity atualizarFaltas(@RequestBody List<Falta> faltas, @RequestParam String matricula) {        
         log.info("chamada ao metodo atualizarFaltas - matricula : {}, faltas : {}", matricula, faltas);
         return alunoService.atualizarFaltas(matricula, faltas);
