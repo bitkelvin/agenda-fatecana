@@ -5,12 +5,12 @@ package com.fatecsp.agendafatecana.enumerated;
  */
 public enum DiaSemanaEnum {
 
+	DOMINGO,
     SEGUNDA,
     TERCA,
     QUARTA,
     QUINTA,
     SEXTA,
-    SABADO,
-    DOMINGO;
+    SABADO;
 
 }

@@ -3,6 +3,7 @@ package com.fatecsp.agendafatecana.web.rest;
 import java.util.List;
 
 import com.fatecsp.agendafatecana.usuario.aluno.Falta;
+import com.fatecsp.agendafatecana.usuario.aluno.Nota;
 import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
 import com.fatecsp.agendafatecana.usuario.aluno.service.AlunoEntityService;
 
@@ -56,11 +57,17 @@ public class AlunoEntityResource {
     }
     
     @PutMapping("/aluno/faltas")
-    //TODO: colocar @ApiOperation aqui em todos os endpoint após adicionar o swagger como dependencia
     @Operation(method = "PUT", description = "Atualiza a lista de faltas de um aluno")
     public AlunoEntity atualizarFaltas(@RequestBody List<Falta> faltas, @RequestParam String matricula) {        
         log.info("chamada ao metodo atualizarFaltas - matricula : {}, faltas : {}", matricula, faltas);
         return alunoService.atualizarFaltas(matricula, faltas);
+    }
+    
+    @PutMapping("/aluno/notas")
+    @Operation(method = "PUT", description = "Atualiza a lista de notas de um aluno")
+    public AlunoEntity atualizarNotas(@RequestBody List<Nota> notas, @RequestParam String matricula) {        
+        log.info("chamada ao metodo atualizarNotas - matricula : {}, faltas : {}", matricula, notas);
+        return alunoService.atualizarNotas(matricula, notas);
     }
     
 }

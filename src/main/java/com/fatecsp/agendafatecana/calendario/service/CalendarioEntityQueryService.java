@@ -1,19 +1,20 @@
 package com.fatecsp.agendafatecana.calendario.service;
 
-import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
-import com.fatecsp.agendafatecana.repository.CalendarioEntityRepository;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import com.fatecsp.agendafatecana.AgendaFatecanaQueryService;
+import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
+import com.fatecsp.agendafatecana.repository.CalendarioEntityRepository;
+
 /**
  * CalendarioEntityQueryService
  */
 @Service
-public class CalendarioEntityQueryService {
+public class CalendarioEntityQueryService extends AgendaFatecanaQueryService{
     private final Logger log = LoggerFactory.getLogger(CalendarioEntityQueryService.class);
 
     @Autowired
@@ -46,5 +47,6 @@ public class CalendarioEntityQueryService {
         log.debug("chamada ao queryService recuperarPorId id: {}", id);
         return calendarioRepository.findById(id).orElse(null);
     }
+    
 
 }

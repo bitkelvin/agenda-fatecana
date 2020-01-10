@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -47,6 +48,12 @@ public class CalendarioEntityResource {
     public void deletarCalendarioPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarCalendarioPorId - ID : ()", id);
         calendarioService.deletarCalendarioPorId(id);
+    }
+    
+    @PostMapping("/calendario/gerar")
+    public CalendarioEntity gerarCalendario(@RequestParam Integer ano, @RequestParam Integer semestre) {
+        log.info("chamada ao metodo gerarCalendario - ano : {}, semestre : {}", ano, semestre);
+    	return calendarioService.gerarCalendario(ano, semestre);
     }
     
     

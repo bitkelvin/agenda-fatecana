@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fatecsp.agendafatecana.usuario.aluno.Falta;
+import com.fatecsp.agendafatecana.usuario.aluno.Nota;
 import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
 
 /**
@@ -57,6 +58,12 @@ public class AlunoEntityService {
         Objects.requireNonNull(matricula, "A matrícula não pode ser nula");
         Map<String, Object> propriedades = new HashMap<>();
         propriedades.put("matricula", matricula);
-        return alunoQueryService.recuperarPorMapaDePropriedades(propriedades);
+        return alunoQueryService.recuperarPorMapaDePropriedades(propriedades, AlunoEntity.class);
     }
+
+	public AlunoEntity atualizarNotas(String matricula, List<Nota> notas) {
+        AlunoEntity aluno = recuperarPorMatricula(matricula);
+        if (Objects.nonNull(aluno)) aluno.setNotas(notas);
+        return aluno;
+	}
 }
