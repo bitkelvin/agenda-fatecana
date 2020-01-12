@@ -22,5 +22,6 @@ public class HorarioMateria {
     private LocalTime horaInicio;
     private LocalTime horaFim;
     private String local;
+    private Integer periodos;
 
 }

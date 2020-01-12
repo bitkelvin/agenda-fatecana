@@ -1,7 +1,11 @@
 package com.fatecsp.agendafatecana.web.rest;
 
+import com.fatecsp.agendafatecana.enumerated.PeriodoAulaEnum;
+import com.fatecsp.agendafatecana.materia.HorarioMateria;
 import com.fatecsp.agendafatecana.materia.domain.MateriaEntity;
 import com.fatecsp.agendafatecana.materia.service.MateriaEntityService;
+
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -48,6 +53,12 @@ public class MateriaEntityResource {
         log.info("chamada ao metodo deletarMateriaPorId - ID : ()", id);
         materiaService.deletarMateriaPorId(id);
     }
+    
+    @PostMapping("materia/criar_materia")
+    public MateriaEntity criarMateria(@RequestParam String codigo, @RequestParam Integer ano, @RequestParam Integer semestre, @RequestParam PeriodoAulaEnum periodo, @RequestParam String disciplina, @RequestBody List<HorarioMateria> horarios) {
+    	log.info("chamada ao metodo criarMateria - codigo : {}, ano : {}, semestre : {}, periodo : {}, disciplina : {}", codigo, ano, semestre, periodo, disciplina);
+    	return materiaService.criarMateria(codigo, ano, semestre, periodo, disciplina, horarios);
+    }	
     
     
 }

@@ -53,6 +53,14 @@ public class CalendarioEntityService {
     }
     
     @Transactional
+    public CalendarioEntity recuperarPorAnoESemetrste(Integer ano, Integer semestre) {
+    	Map<String, Object> propriedades = new HashMap<>();
+    	propriedades.put("ano", ano);
+    	propriedades.put("semestre", semestre);
+    	return calendarioQueryService.recuperarPorMapaDePropriedades(propriedades, CalendarioEntity.class);
+    }
+    
+    @Transactional
     public CalendarioEntity gerarCalendario(Integer ano, Integer semestre) {
     	
     	Objects.requireNonNull(ano, "O ano não pode ser nulo.");

@@ -33,7 +33,7 @@ public class MateriaEntity {
     private PeriodoAulaEnum periodo;
     private List<Aula> aulas;
     private List<Evento> eventos;
-    private HorarioMateria horario;
+    private List<HorarioMateria> horario;
 
     //id da disciplina
     private String disciplina;

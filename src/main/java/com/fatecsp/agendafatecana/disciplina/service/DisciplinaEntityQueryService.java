@@ -1,5 +1,6 @@
 package com.fatecsp.agendafatecana.disciplina.service;
 
+import com.fatecsp.agendafatecana.AgendaFatecanaQueryService;
 import com.fatecsp.agendafatecana.disciplina.domain.DisciplinaEntity;
 import com.fatecsp.agendafatecana.repository.DisciplinaEntityRepository;
 
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
  * DisciplinaEntityQueryService
  */
 @Service
-public class DisciplinaEntityQueryService {
+public class DisciplinaEntityQueryService extends AgendaFatecanaQueryService{
     private final Logger log = LoggerFactory.getLogger(DisciplinaEntityQueryService.class);
 
     @Autowired

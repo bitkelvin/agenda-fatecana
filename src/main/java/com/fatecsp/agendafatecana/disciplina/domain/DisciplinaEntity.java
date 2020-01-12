@@ -24,5 +24,6 @@ public class DisciplinaEntity {
 
     private String id;
     private String nome;
-    private List<String> idCursos; 
+    private List<String> idCursos;
+    private Integer cargaHoraria;
 }

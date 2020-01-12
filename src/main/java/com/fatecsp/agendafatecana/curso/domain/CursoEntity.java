@@ -1,11 +1,9 @@
 package com.fatecsp.agendafatecana.curso.domain;
 
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fatecsp.agendafatecana.enumerated.DepartamentoEnum;
 import com.querydsl.core.annotations.QueryEntity;
-
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +25,5 @@ public class CursoEntity {
     private String nome;
     private DepartamentoEnum departamento; 
 
-    //ids dos cursos
-    private List<String> cursos;
     
 }

@@ -39,4 +39,9 @@ public class DisciplinaEntityService {
     public void deletarDisciplinaPorId(String id) {
         disciplinaQueryService.deletarDisciplinaPorId(id);
     }
+    
+    @Transactional
+    public DisciplinaEntity recuperarPorID(String id) {
+        return disciplinaQueryService.recuperarPorId(id);
+    }
 }
