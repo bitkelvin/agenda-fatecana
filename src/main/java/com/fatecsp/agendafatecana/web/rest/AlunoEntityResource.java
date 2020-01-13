@@ -2,6 +2,7 @@ package com.fatecsp.agendafatecana.web.rest;
 
 import java.util.List;
 
+import com.fatecsp.agendafatecana.evento.Evento;
 import com.fatecsp.agendafatecana.usuario.aluno.Falta;
 import com.fatecsp.agendafatecana.usuario.aluno.Nota;
 import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
@@ -68,6 +69,27 @@ public class AlunoEntityResource {
     public AlunoEntity atualizarNotas(@RequestBody List<Nota> notas, @RequestParam String matricula) {        
         log.info("chamada ao metodo atualizarNotas - matricula : {}, faltas : {}", matricula, notas);
         return alunoService.atualizarNotas(matricula, notas);
+    }
+    
+    @PostMapping("/aluno/evento")
+    @Operation(method = "POST", description = "Adiciona um evento a um aluno")
+    public AlunoEntity salvarEvento(@RequestBody Evento evento, @RequestParam String matricula) {        
+        log.info("chamada ao metodo salvarEvento - matricula : {}, evento : {}", matricula, evento);
+        return alunoService.salvarEvento(matricula, evento);
+    }
+    
+    @PutMapping("/aluno/evento")
+    @Operation(method = "PUT", description = "Atualiza um evento de um aluno")
+    public AlunoEntity atualizarEvento(@RequestBody Evento evento, @RequestParam String matricula) {        
+        log.info("chamada ao metodo atualizarEvento - matricula : {}, evento : {}", matricula, evento);
+        return alunoService.atualizarEvento(matricula, evento);
+    }
+    
+    @DeleteMapping("/aluno/evento")
+    @Operation(method = "DELETE", description = "Deleta um evento de um aluno")
+    public AlunoEntity deletarEvento(@RequestBody String idEvento, @RequestParam String matricula) {        
+        log.info("chamada ao metodo deletarEvento - matricula : {}, idEvento : {}", matricula, idEvento);
+        return alunoService.deletarEvento(matricula, idEvento);
     }
     
 }
