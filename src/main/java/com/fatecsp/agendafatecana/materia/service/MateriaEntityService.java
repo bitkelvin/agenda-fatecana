@@ -123,4 +123,9 @@ public class MateriaEntityService {
     	
     	return salvarMateria(materia);
     }
+
+	public List<MateriaEntity> recuperarPorId(List<String> ids) {
+		if (CollectionUtils.isEmpty(ids)) return new ArrayList<>();
+		return materiaQueryService.recuperarPorIds(ids);
+	}
 }

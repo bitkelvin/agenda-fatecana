@@ -25,5 +25,7 @@ public class Evento {
     private String cor;
     private LocalDateTime inicio;
     private LocalDateTime fim;
+    private boolean editavel;
+    private boolean fatec;
 
 }

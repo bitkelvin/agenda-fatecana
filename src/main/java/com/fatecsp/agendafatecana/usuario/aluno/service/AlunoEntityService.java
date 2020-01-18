@@ -36,7 +36,7 @@ public class AlunoEntityService {
 
     @Transactional
     public AlunoEntity atualizarAluno(AlunoEntity e) {
-        if (e.getId() != null) throw new RuntimeException("A entidade não pode ter id nulo");
+        if (e.getId() == null) throw new RuntimeException("A entidade não pode ter id nulo");
         return alunoQueryService.salvarAluno(e);
     }
 
@@ -54,10 +54,10 @@ public class AlunoEntityService {
 	public AlunoEntity atualizarFaltas(String matricula, List<Falta> faltas) {
         AlunoEntity aluno = recuperarPorMatricula(matricula);
         if (Objects.nonNull(aluno)) aluno.setFaltas(faltas);
-        return aluno;
+        return atualizarAluno(aluno);
 	}
 
-    private AlunoEntity recuperarPorMatricula(String matricula) {
+    public AlunoEntity recuperarPorMatricula(String matricula) {
         Objects.requireNonNull(matricula, "A matrícula não pode ser nula");
         Map<String, Object> propriedades = new HashMap<>();
         propriedades.put("matricula", matricula);
@@ -77,6 +77,7 @@ public class AlunoEntityService {
         AlunoEntity aluno = recuperarPorMatricula(matricula);
         if (aluno == null) throw new RuntimeException("Não foi encontrado registro de aluno com a matrícula " + matricula);
         if (CollectionUtils.isEmpty(aluno.getEventos())) aluno.setEventos(new ArrayList<>());
+        evento.setEditavel(true);
         aluno.getEventos().add(evento);
         return atualizarAluno(aluno);
 	}
