@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,11 +55,16 @@ public class MateriaEntityResource {
         materiaService.deletarMateriaPorId(id);
     }
     
-    @PostMapping("materia/criar_materia")
+    @PostMapping("/materia/criar_materia")
     public MateriaEntity criarMateria(@RequestParam String codigo, @RequestParam Integer ano, @RequestParam Integer semestre, @RequestParam PeriodoAulaEnum periodo, @RequestParam String disciplina, @RequestBody List<HorarioMateria> horarios) {
     	log.info("chamada ao metodo criarMateria - codigo : {}, ano : {}, semestre : {}, periodo : {}, disciplina : {}", codigo, ano, semestre, periodo, disciplina);
     	return materiaService.criarMateria(codigo, ano, semestre, periodo, disciplina, horarios);
     }	
+    
+    @GetMapping("/materia")
+    public List<MateriaEntity> recuperarMaterias(){
+    	return materiaService.findAll();
+    }
     
     
 }

@@ -31,6 +31,25 @@ public class AgendaService {
 	@Autowired
 	MateriaEntityService materiaService;
 	
+	
+	
+	public AgendaService() {
+		super();
+	}
+
+
+
+	public AgendaService(AlunoEntityService alunoService, ProfessorEntityService professorService,
+			CalendarioEntityService calendarioService, MateriaEntityService materiaService) {
+		super();
+		this.alunoService = alunoService;
+		this.professorService = professorService;
+		this.calendarioService = calendarioService;
+		this.materiaService = materiaService;
+	}
+
+
+
 	public AgendaDTO gerarAgendaAluno(String matricula, Integer ano, Integer semestre) {
 		
 		Objects.requireNonNull(matricula, "Matricula não pode ser nulo.");

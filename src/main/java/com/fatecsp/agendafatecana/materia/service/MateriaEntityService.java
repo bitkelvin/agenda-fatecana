@@ -128,4 +128,8 @@ public class MateriaEntityService {
 		if (CollectionUtils.isEmpty(ids)) return new ArrayList<>();
 		return materiaQueryService.recuperarPorIds(ids);
 	}
+
+	public List<MateriaEntity> findAll() {
+		return materiaQueryService.findAll();
+	}
 }

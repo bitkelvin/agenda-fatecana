@@ -69,4 +69,8 @@ public class MateriaEntityQueryService extends AgendaFatecanaQueryService {
         return materiaRepository.findById(id).orElse(null);
     }
 
+	public List<MateriaEntity> findAll() {
+		return materiaRepository.findAll();
+	}
+
 }

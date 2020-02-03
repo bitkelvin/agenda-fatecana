@@ -94,6 +94,8 @@ public class CalendarioEntityService {
     				cal.set(ano, i-1, y);
     				dia.setDiaDaSemana(DiaSemanaEnum.values()[cal.get(Calendar.DAY_OF_WEEK) -1]);
     				dia.setLetivo(!dia.getDiaDaSemana().equals(DiaSemanaEnum.DOMINGO));
+    				dia.setEventos(new ArrayList<>());
+    				dia.setAulas(new ArrayList<>());
     				dias.add(dia);
     			}
 

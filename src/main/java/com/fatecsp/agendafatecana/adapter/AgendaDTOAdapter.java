@@ -71,9 +71,10 @@ public class AgendaDTOAdapter {
 											.add(aula);
 						});
 				}
-			}
+			}	
 			
 		}
+		
 		
 		return AgendaDTO.builder().meses(calendario.getMeses()).build();
 		
