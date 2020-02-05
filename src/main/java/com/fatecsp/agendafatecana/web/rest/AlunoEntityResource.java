@@ -94,7 +94,7 @@ public class AlunoEntityResource {
         return alunoService.deletarEvento(matricula, idEvento);
     }
     
-    @GetMapping("/aluno/filtro")
+    @PostMapping("/aluno/filtro")
     public List<AlunoEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
     	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
     	return alunoService.recuperarPorMapaDePropredades(mapaDePropriedades);
