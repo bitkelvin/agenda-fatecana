@@ -1,6 +1,19 @@
 package com.fatecsp.agendafatecana.web.rest;
 
 import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fatecsp.agendafatecana.evento.Evento;
 import com.fatecsp.agendafatecana.usuario.aluno.Falta;
@@ -9,17 +22,6 @@ import com.fatecsp.agendafatecana.usuario.aluno.domain.AlunoEntity;
 import com.fatecsp.agendafatecana.usuario.aluno.service.AlunoEntityService;
 
 import io.swagger.v3.oas.annotations.Operation;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 
 /**
@@ -90,6 +92,12 @@ public class AlunoEntityResource {
     public AlunoEntity deletarEvento(@RequestBody String idEvento, @RequestParam String matricula) {        
         log.info("chamada ao metodo deletarEvento - matricula : {}, idEvento : {}", matricula, idEvento);
         return alunoService.deletarEvento(matricula, idEvento);
+    }
+    
+    @GetMapping("/aluno/filtro")
+    public List<AlunoEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
+    	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
+    	return alunoService.recuperarPorMapaDePropredades(mapaDePropriedades);
     }
     
 }

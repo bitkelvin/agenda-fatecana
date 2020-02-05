@@ -1,17 +1,21 @@
 package com.fatecsp.agendafatecana.web.rest;
 
-import com.fatecsp.agendafatecana.disciplina.domain.DisciplinaEntity;
-import com.fatecsp.agendafatecana.disciplina.service.DisciplinaEntityService;
+import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fatecsp.agendafatecana.disciplina.domain.DisciplinaEntity;
+import com.fatecsp.agendafatecana.disciplina.service.DisciplinaEntityService;
 
 
 /**
@@ -47,6 +51,12 @@ public class DisciplinaEntityResource {
     public void deletarDisciplinaPorId(@RequestBody String id) {        
         log.info("chamada ao metodo deletarDisciplinaPorId - ID : ()", id);
         disciplinaService.deletarDisciplinaPorId(id);
+    }
+    
+    @GetMapping("/disciplina/filtro")
+    public List<DisciplinaEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
+    	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
+    	return disciplinaService.recuperarPorMapaDePropredades(mapaDePropriedades);
     }
     
     

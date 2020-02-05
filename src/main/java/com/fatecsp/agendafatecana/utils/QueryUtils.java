@@ -31,4 +31,23 @@ public class QueryUtils {
         return query;
 
     }
+    
+    public static Query criarCriteriaFiltro(Map<String, List<Object>> mapaPropriedades) {
+
+        Objects.requireNonNull(mapaPropriedades, "O mapeio de propriedades não pode ser nulo.");
+
+        Query query = new Query();
+        query.fields();
+        
+        List<Criteria> criteriaList = new ArrayList<>();
+
+        mapaPropriedades.entrySet().stream().forEach(e -> {            
+            criteriaList.add(Criteria.where(e.getKey()).in(e.getValue()));
+        });
+        
+        query.addCriteria(new Criteria().andOperator(criteriaList.toArray(new Criteria[0])));
+        
+        return query;
+
+    }
 }

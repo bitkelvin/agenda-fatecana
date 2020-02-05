@@ -1,5 +1,6 @@
 package com.fatecsp.agendafatecana.curso.service;
 
+import com.fatecsp.agendafatecana.AgendaFatecanaQueryService;
 import com.fatecsp.agendafatecana.curso.domain.CursoEntity;
 import com.fatecsp.agendafatecana.repository.CursoEntityRepository;
 
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
  * CursoEntityQueryService
  */
 @Service
-public class CursoEntityQueryService {
+public class CursoEntityQueryService extends AgendaFatecanaQueryService {
     private final Logger log = LoggerFactory.getLogger(CursoEntityQueryService.class);
 
     @Autowired

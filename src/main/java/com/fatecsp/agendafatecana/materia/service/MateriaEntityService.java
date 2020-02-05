@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -132,4 +133,11 @@ public class MateriaEntityService {
 	public List<MateriaEntity> findAll() {
 		return materiaQueryService.findAll();
 	}
+
+	public List<MateriaEntity> recuperarPorMapaDePropredades(Map<String, List<Object>> mapaDePropriedades) {
+		if (CollectionUtils.isEmpty(mapaDePropriedades)) return new ArrayList<>();
+		return materiaQueryService.recuperarTodosPorMapaDePropriedadesFiltro(mapaDePropriedades, MateriaEntity.class);
+	}
+
+
 }

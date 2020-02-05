@@ -1,18 +1,22 @@
 package com.fatecsp.agendafatecana.web.rest;
 
-import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
-import com.fatecsp.agendafatecana.calendario.service.CalendarioEntityService;
+import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
+import com.fatecsp.agendafatecana.calendario.service.CalendarioEntityService;
 
 
 /**
@@ -56,5 +60,10 @@ public class CalendarioEntityResource {
     	return calendarioService.gerarCalendario(ano, semestre);
     }
     
+    @GetMapping("/calendario/filtro")
+    public List<CalendarioEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
+    	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
+    	return calendarioService.recuperarPorMapaDePropredades(mapaDePropriedades);
+    }
     
 }

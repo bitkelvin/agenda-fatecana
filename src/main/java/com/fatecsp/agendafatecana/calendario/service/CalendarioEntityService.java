@@ -12,6 +12,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.fatecsp.agendafatecana.calendario.domain.CalendarioEntity;
 import com.fatecsp.agendafatecana.calendario.domain.Dia;
@@ -108,7 +109,13 @@ public class CalendarioEntityService {
     		calendario.setSemestre(semestre); 
     		
     		return salvarCalendario(calendario);
-    	}
+    	}    	
+
     }
+    
+	public List<CalendarioEntity> recuperarPorMapaDePropredades(Map<String, List<Object>> mapaDePropriedades) {
+		if (CollectionUtils.isEmpty(mapaDePropriedades)) return new ArrayList<>();
+		return calendarioQueryService.recuperarTodosPorMapaDePropriedadesFiltro(mapaDePropriedades, CalendarioEntity.class);
+	}
     
 }

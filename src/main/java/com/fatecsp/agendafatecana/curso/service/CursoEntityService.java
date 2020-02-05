@@ -1,11 +1,16 @@
 package com.fatecsp.agendafatecana.curso.service;
 
-import com.fatecsp.agendafatecana.curso.domain.CursoEntity;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import com.fatecsp.agendafatecana.curso.domain.CursoEntity;
 
 /**
  * CursoEntityService
@@ -39,4 +44,9 @@ public class CursoEntityService {
     public void deletarCursoPorId(String id) {
         cursoQueryService.deletarCursoPorId(id);
     }
+    
+	public List<CursoEntity> recuperarPorMapaDePropredades(Map<String, List<Object>> mapaDePropriedades) {
+		if (CollectionUtils.isEmpty(mapaDePropriedades)) return new ArrayList<>();
+		return cursoQueryService.recuperarTodosPorMapaDePropriedadesFiltro(mapaDePropriedades, CursoEntity.class);
+	}
 }

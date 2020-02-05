@@ -34,5 +34,14 @@ public class AgendaFatecanaQueryService {
         return mongoTemplate.find(query, clazz);
 	
     }
+	
+	public <T> List<T> recuperarTodosPorMapaDePropriedadesFiltro(Map<String, List<Object>> propriedades, Class<T> clazz ) {
+        log.debug("chamada ao queryService recuperarPorMapaDePropriedades - propriedades: {}, entidade: {}", propriedades, clazz.toString());
+        
+        Query query = QueryUtils.criarCriteriaFiltro(propriedades);
+        
+        return mongoTemplate.find(query, clazz);
+	
+    }
 
 }

@@ -6,6 +6,7 @@ import com.fatecsp.agendafatecana.materia.domain.MateriaEntity;
 import com.fatecsp.agendafatecana.materia.service.MateriaEntityService;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +61,12 @@ public class MateriaEntityResource {
     	log.info("chamada ao metodo criarMateria - codigo : {}, ano : {}, semestre : {}, periodo : {}, disciplina : {}", codigo, ano, semestre, periodo, disciplina);
     	return materiaService.criarMateria(codigo, ano, semestre, periodo, disciplina, horarios);
     }	
+    
+    @GetMapping("/materia/filtro")
+    public List<MateriaEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
+    	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
+    	return materiaService.recuperarPorMapaDePropredades(mapaDePropriedades);
+    }
     
     @GetMapping("/materia")
     public List<MateriaEntity> recuperarMaterias(){

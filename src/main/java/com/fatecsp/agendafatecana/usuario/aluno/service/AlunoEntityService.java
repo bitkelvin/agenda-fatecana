@@ -107,4 +107,9 @@ public class AlunoEntityService {
         }
         throw new RuntimeException("Não foi encontrado um evento com o id " + evento.getId());
 	}
+	
+	public List<AlunoEntity> recuperarPorMapaDePropredades(Map<String, List<Object>> mapaDePropriedades) {
+		if (CollectionUtils.isEmpty(mapaDePropriedades)) return new ArrayList<>();
+		return alunoQueryService.recuperarTodosPorMapaDePropriedadesFiltro(mapaDePropriedades, AlunoEntity.class);
+	}
 }
