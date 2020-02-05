@@ -21,7 +21,7 @@ public class AgendaFatecanaApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/api/**")
-				.allowedMethods("*")
+				.allowedMethods("PUT", "DELETE", "POST", "GET")
 				.allowedOrigins("*");
 			}
 		};
