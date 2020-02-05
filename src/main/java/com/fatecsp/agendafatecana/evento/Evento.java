@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Evento {
 
     private String id;
-    private String title;
+    private String titulo;
     private String descricao;
     private String cor;
     private LocalDateTime inicio;
