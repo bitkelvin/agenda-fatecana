@@ -1,6 +1,7 @@
 package com.fatecsp.agendafatecana.usuario.aluno;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import com.fatecsp.agendafatecana.enumerated.TipoNotaEnum;
 
@@ -20,6 +21,6 @@ public class Nota {
 
    private TipoNotaEnum tipo;
    private BigDecimal valor;
-   private String comentario; 
+   private LocalDate data;
    
 }
