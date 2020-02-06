@@ -22,5 +22,6 @@ public class Nota {
    private TipoNotaEnum tipo;
    private BigDecimal valor;
    private LocalDate data;
+   private String codigoMateria;
    
 }
