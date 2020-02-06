@@ -53,7 +53,7 @@ public class DisciplinaEntityResource {
         disciplinaService.deletarDisciplinaPorId(id);
     }
     
-    @GetMapping("/disciplina/filtro")
+    @PostMapping("/disciplina/filtro")
     public List<DisciplinaEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
     	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
     	return disciplinaService.recuperarPorMapaDePropredades(mapaDePropriedades);

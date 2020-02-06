@@ -53,7 +53,7 @@ public class CursoEntityResource {
         cursoService.deletarCursoPorId(id);
     }
     
-    @GetMapping("/curso/filtro")
+    @PostMapping("/curso/filtro")
     public List<CursoEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
     	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
     	return cursoService.recuperarPorMapaDePropredades(mapaDePropriedades);

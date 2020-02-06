@@ -62,7 +62,7 @@ public class MateriaEntityResource {
     	return materiaService.criarMateria(codigo, ano, semestre, periodo, disciplina, horarios);
     }	
     
-    @GetMapping("/materia/filtro")
+    @PostMapping("/materia/filtro")
     public List<MateriaEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
     	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
     	return materiaService.recuperarPorMapaDePropredades(mapaDePropriedades);

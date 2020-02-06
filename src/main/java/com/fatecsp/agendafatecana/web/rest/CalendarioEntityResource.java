@@ -60,7 +60,7 @@ public class CalendarioEntityResource {
     	return calendarioService.gerarCalendario(ano, semestre);
     }
     
-    @GetMapping("/calendario/filtro")
+    @PostMapping("/calendario/filtro")
     public List<CalendarioEntity> recuperarPorMapaDePropredades(@RequestBody Map<String, List<Object>> mapaDePropriedades){
     	log.info("chamada ao metodo recuperarPorMapaDePropredades - mapaDePropriedades : {}", mapaDePropriedades);
     	return calendarioService.recuperarPorMapaDePropredades(mapaDePropriedades);
