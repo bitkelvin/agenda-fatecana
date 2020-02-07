@@ -104,6 +104,7 @@ public class MateriaEntityService {
     				aula.setInicio(horaInicio);
     				aula.setFim(horaFim);
     				aula.setPresencial(true);
+    				aula.setCodigoMateria(codigo);
     				
     				qtdPeriodos.subtract(BigDecimal.valueOf(h.getPeriodos()));
     				

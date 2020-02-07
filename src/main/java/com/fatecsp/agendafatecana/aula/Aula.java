@@ -21,6 +21,7 @@ import lombok.NoArgsConstructor;
 @QueryEntity
 public class Aula {
 
+	private String codigoMateria;
 	private String id;
 	private LocalDateTime inicio;
 	private LocalDateTime fim;
